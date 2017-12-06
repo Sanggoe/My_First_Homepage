@@ -1,0 +1,223 @@
+﻿<!doctype html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    /*initial*/
+	* { margin: 0; padding: 0; }
+	body { font-family: 'Times New Roman', Times, serif;
+           background-image: url(mainfood6.png);
+           background-repeat: no-repeat;
+           background-size: cover ;
+	}
+
+	li { list-style: none; }
+    a { text-decoration: none !important; color: black;}
+    h1 { text-decoration: none !important; }
+    img { border: 0; }
+    </style>
+
+    <style>
+	/*header*/
+    #up { width: 100%; background: rgba(255,255,255,0.9); }
+	#main_header { width: 900px; height: 70px; position: relative; margin: 0px auto;
+				   overflow: visible;
+	}
+    #title { width: 370px; height: 60px; line-height: 60px !important; position: absolute; bottom: 1px;
+             margin: 0px 0px 0px -1.5px; float: left; text-align: center; /*background-color: yellow; */}
+    #main_nav { width: 480px; height: 40px; line-height: 40px; text-align: center;
+                position: absolute; right: 0px; bottom: 0px; }
+    #main_nav ul { margin: 0px; padding: 0px; overflow: hidden; }
+    .main_menu { float: left; line-height: 40px; position: relative; /*background-color:cyan;*/}
+	.main_menu_link, .sub_menu_link { text-decoration: none; display: block;
+									    width: 120px; font-size: 1.7em !important; }
+	.main_menu_link { color: black; text-shadow: 1px 1px 1px black; }
+
+    .main_menu:hover .main_menu_link { color: greenyellow; text-shadow: 1px 1px 2px black; }
+	.sub_menu_link { color: white; font-size: 1.0em !important ; }
+	.sub_menu { height: 0px; overflow: hidden;  background: rgba(0,0,0,0.7); position: relative; 
+						transition: height .3s; z-index: 10;
+						-webkit-transition: height .3s; }
+	.main_menu:hover .sub_menu { margin-top: 10px; height: 160px;  background: rgba(0,0,0,0.7); }
+	.main_menu:hover .sub_menu_link { color: white; text-shadow: 2px 2px 1px black; }
+	.main_menu:hover .sub_menu_link:hover { color: greenyellow; text-shadow: 1px 1px 1px black; }
+    </style>
+
+    <style>
+    /*content*/
+    #wrap { width: 100%; height: 815px; margin: 0 auto;       
+            text-align: center;
+            overflow: scroll;
+    }
+    #main_section { width: 1080px; height: 2930px; z-index: 1; position: relative;
+                    margin: 0px auto; overflow: hidden; background: rgba(255,255,255,0.9); }
+    .article { width: 980px; height: 2830px; margin: 0px auto;
+               background: rgba(255,255,255,0.5); }
+    .article_menu { width: 700px; height: 100px; position: relative; margin: 0px auto 0px; 
+                    text-align: left; line-height: 20px; padding: 0px 10px;
+                    /*background-color: aquamarine;*/ }
+    .article_menu span { padding: 0px 0px 0px 20px; }
+    .article_menu .menu_link { padding: 0px 30px; /*ackground-color: blueviolet;*/ }
+    .article_menu hr { margin: -5px 0px 5px 0px; border: 1px solid dimgray; }
+    .article_menu hr:first-of-type { margin: 20px 0px 5px 0px; border: 1px solid black; }
+    .article_menu hr:nth-of-type(2) { border: 1px solid black; }
+    .article_menu hr:last-of-type { border: 1px solid black; }
+    .article_title { width: 920px; height: 50px; position: relative; margin: 0px auto 20px; 
+                     text-align: left; padding: 10px 20px; line-height: 30px;
+                     /*background-color: cornflowerblue;*/ } 
+    .article_title p { font-size:1.2em; color: limegreen; font: bolder; text-shadow: 1px 1px 1px black;}
+    .article_title hr { margin: -10px auto; border: 1px solid black;}
+    .article_content { width: 920px; height: 900px; margin: 10px auto;
+                       text-align: center; line-height: 20px;
+                       /*background-color: ivory;*/}
+    .image_size { width: 400px; height: 300px; margin: 10px; }
+    .image_size2 { width: 400px; margin: 10px; }
+    h4 { text-shadow: 1px 1px 1px black; color: darkblue; }
+    .article_content img:last-of-type { width: 600px; }
+    .article p, h4 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #article_footer { width: 980px; height: 50px; position: absolute; bottom: 10px;
+                      text-align: center; line-height: 50px; }
+    #article_footer hr { margin: 0px auto; border: 1px solid black; }
+    #to_top { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+              left: 0px; top: 70px; z-index: 110; line-height: 50px; text-align: center;
+              border: 2px solid black; opacity: 0.2; }
+    #to_bottom { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+                 left: 0px; top: 118px; z-index: 110; line-height: 50px; text-align: center;
+                 border: 2px solid black; opacity: 0.2; transition-duration: 0.5s; }
+    #to_top i, #to_bottom i { font-size: 3.0em; }
+    #to_top:hover, #to_bottom:hover { opacity: 1; transition-duration: 0.5s; }
+    </style>
+
+    <style>
+    /*footer*/
+    #main_footer { width: 100%; height:60px; position: relative; z-index: 100;
+                   margin-left: 2px; line-height: 60px; bottom: 0px; text-align: center;
+                   background-position: bottom; background-color: white; }
+    </style>
+ </head>
+ 
+ <body>
+     <div id="up">
+         <header id="main_header">
+             <div id="title">
+                 <a href="index.html"><img src="title.png" /></a>
+             </div> <!--And of title-->
+             <nav id="main_nav">
+                 <ul>
+                     <li class="main_menu"><a class="main_menu_link" href="index.html"><b>Home</b></a></li>
+                     <li class="main_menu"><a class="main_menu_link" href="profile.html"><b>Profile</b></a></li>
+                     <li class="main_menu">
+                         <a class="main_menu_link" href="cook.html"><b>Cook</b></a>
+                         <ul class="sub_menu">
+                             <li><a class="sub_menu_link" href="salad.html">Salad</a></li>
+                             <li><a class="sub_menu_link" href="pasta.html">Pasta</a></li>
+                             <li><a class="sub_menu_link" href="koreanfood.html">Korean Food</a></li>
+                             <li><a class="sub_menu_link" href="others.html">Others</a></li>
+                         </ul>
+                     </li>
+                     <li class="main_menu">
+                         <a class="main_menu_link" href="#"><b>Interested</b></a>
+                         <ul class="sub_menu">
+                             <li><a class="sub_menu_link" href="#">Music</a></li>
+                             <li><a class="sub_menu_link" href="#">Study</a></li>
+                             <li><a class="sub_menu_link" href="#">Book</a></li>
+                             <li><a class="sub_menu_link" href="#">Choir</a></li>
+                         </ul>
+                     </li>
+                 </ul>
+             </nav> <!--And of main_nav-->
+         </header>
+     </div>
+
+     <div id="wrap">
+         <section id="main_section">
+             <div class="article">
+                 <div class="article_menu">
+                     <hr />
+                     <p>
+                         <span id="click">메뉴</span>
+                         <a href="salad.html">&nbsp;|&nbsp; Salad</a>
+                         <a href="pasta.html">&nbsp;|&nbsp; Pasta</a>
+                         <a href="koreanfood.html">&nbsp;|&nbsp; Koreanfood</a>
+                         <a href="others.html">&nbsp;|&nbsp; Others</a>
+                     </p>
+                     <hr />
+                     <p><a class="menu_link" href="salad.html"><b> - [샐러드] 체다치즈 토마토 샐러드</b></a></p>
+                     <hr />
+                 </div>
+                 <div class="article_title">
+                     <p>
+                         <b> [샐러드] 체다치즈 토마토 샐러드(oriental dressing 사용)</b>
+                         <a href="cook.html">&nbsp;|&nbsp; Cook</a>
+                     </p>
+                     <hr />
+                 </div>
+                 <div class="article_content">
+                     <p>벌써 여름 방학이 한 달정도 남았을 무렵...</p>
+                     <p>딱히 하는것도 없이 집에서 무의미한 시간을 보내고 있는 도중에..</p>
+                     <br />
+                     <p>뒹굴 뒹굴...</p>
+                     <p>.</p>
+                     <p>.</p>
+                     <p>.</p>
+                     <br />
+                     <p>고등학교때 친구에게 연락을 해보니 역시 나와 똑같은 행동을 하고 있다!!ㅋㅋ</p>
+                     <p>할거 없으면 집에나 놀러오라고 연락을 해서 집에서 맛난걸 해주기로 했습니다ㅋㅋ</p>
+                     <br />
+                     <p style="color:cornflowerblue">뭘 해줄까.. 생각하다 가장 만만한 파스타와 샐러드!!</p>
+                     <br />
+                     <p>저는 딱히 막 재료를 전문적으로 구매해서 하는 스타일이 아닌</p>
+                     <p>있는걸로 해결해보려 하는 스타일, 그리고 야매(?) 스타일이기에ㅋㅋ</p>
+                     <br />
+                     <p>냉장고에 뭐가 있나.. 일단 샐러드나 먼저 해볼까? (주섬주섬)</p>
+                     <br />
+                     <p>준비물은 아래와 같아요.</p>
+                     <br />
+                     <hr />
+                     <img class="image_size" src="vegetable.png" />
+                     <img class="image_size" src="tomato.png" />
+                     <img class="image_size2" src="cheese.png" />
+                     <img class="image_size2" src="sauce.png" />
+                     <hr />
+                     <br />
+                     <p style="color:darkmagenta">양상추, 방울토마토, 슬라이스 치즈(원하는 만큼), 가장 중요한 소스!!!</p>
+                     <br />
+                     <p>요 소스가.. 아무것도 아닌 것 같지만 맛을 좌우하는 가장 큰 요소라구요..</p>
+                     <p>실력은 개뿔 맛있는건 다 이 소스빨..ㅋㅋㅋ</p>
+                     <br />
+                     <p style="color:crimson">양상추는 씻어서 먹기 좋은 크기로 뜯어주시구요,</p>
+                     <p style="color:chocolate">방울토마토는 크면 잘라주시고, 작으면 그냥 넣어도 되구요.</p>
+                     <p style="color:darkred">그리고 <del>내 사랑</del> 치즈는 세겹정도로 겹쳐서 잘라 주세요.</p>
+                     <br />
+                     <p style="color:mediumblue">그리고 마지막으로 오리엔탈 드레싱을 먹고싶은 만큼 마구마구 뿌려주세요~~!!</p>
+                     <br />
+                     <p>이렇게 하면 아주 빠르게, 초 간단하게, 맛있는 샐러드가 완성이 되죠??</p>
+                     <p><del>원래는 고급지게 리코타 치즈로 해야하는건데... </del></p>
+                     <br />
+                     <img src="salad.png" />
+                     <hr />
+                     <h4>체다 치즈 토마토 샐러드 완성!!</h4>
+                     <hr />
+                     <p>기호에 따라 여기다 크렌베리 라던가, 아니면 견과류 등을 넣어 먹어도 맛있을 듯 해요.</p>
+                 </div>
+                 <div id="article_footer">
+                     <hr />
+                     <h4><a href="salad.html">1</a></h4>
+                     <hr />
+                 </div>
+             </div>
+         </section>
+     </div> <!--And of wrap-->
+     <div id="to_top">
+         <a href="#main_section"><i class="glyphicon glyphicon-chevron-up"></i></a>
+     </div>
+     <div id="to_bottom">
+         <a href="#article_footer"><i class="glyphicon glyphicon-chevron-down"></i></a>
+     </div>
+     <footer id="main_footer">
+         <img src="footer.png" />
+     </footer>
+</body>
+</html>

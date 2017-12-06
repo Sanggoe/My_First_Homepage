@@ -1,0 +1,276 @@
+﻿<!doctype html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    /*initial*/
+	* { margin: 0; padding: 0; }
+	body { font-family: 'Times New Roman', Times, serif;
+           background-image: url(mainfood6.png);
+           background-repeat: no-repeat;
+           background-size: cover ;
+	}
+
+	li { list-style: none; }
+    a { text-decoration: none !important; color: black;}
+    h1 { text-decoration: none !important; }
+    img { border: 0; }
+    </style>
+
+    <style>
+	/*header*/
+    #up { width: 100%; background: rgba(255,255,255,0.9); }
+	#main_header { width: 900px; height: 70px; position: relative; margin: 0px auto;
+				   overflow: visible;
+	}
+    #title { width: 370px; height: 60px; line-height: 60px !important; position: absolute; bottom: 1px;
+             margin: 0px 0px 0px -1.5px; float: left; text-align: center; /*background-color: yellow; */}
+    #main_nav { width: 480px; height: 40px; line-height: 40px; text-align: center;
+                position: absolute; right: 0px; bottom: 0px; }
+    #main_nav ul { margin: 0px; padding: 0px; overflow: hidden; }
+    .main_menu { float: left; line-height: 40px; position: relative; /*background-color:cyan;*/}
+	.main_menu_link, .sub_menu_link { text-decoration: none; display: block;
+									  width: 120px; font-size: 1.7em !important; }
+	.main_menu_link { color: black; text-shadow: 1px 1px 1px black; }
+
+    .main_menu:hover .main_menu_link { color: greenyellow; text-shadow: 1px 1px 2px black; }
+	.sub_menu_link { color: white; font-size: 1.0em !important ; }
+	.sub_menu { height: 0px; overflow: hidden;  background: rgba(0,0,0,0.7); position: relative; 
+						transition: height .3s; z-index: 10;
+						-webkit-transition: height .3s; }
+	.main_menu:hover .sub_menu { margin-top: 10px; height: 160px;  background: rgba(0,0,0,0.7); }
+	.main_menu:hover .sub_menu_link { color: white; text-shadow: 2px 2px 1px black; }
+	.main_menu:hover .sub_menu_link:hover { color: greenyellow; text-shadow: 1px 1px 1px black; }
+    </style>
+
+    <style>
+    /*content*/
+    #wrap { width: 100%; height: 815px; margin: 0 auto;       
+            text-align: center;
+            overflow: scroll;
+    }
+    #main_section { width: 1080px; height: 6350px; z-index: 1; position: relative;
+                    margin: 0px auto; overflow: hidden; background: rgba(255,255,255,0.9); }
+    .article { width: 980px; height: 6250px; margin: 0px auto;
+               background: rgba(255,255,255,0.5); }
+    .article_menu { width: 700px; height: 200px; position: relative; margin: 0px auto 0px; 
+                    text-align: left; line-height: 20px; padding: 0px 10px;
+                    /*background-color: aquamarine;*/ }
+    .article_menu span { padding: 0px 0px 0px 20px; }
+    .article_menu .menu_link { padding: 0px 30px; /*background-color: blueviolet;*/ }
+    .article_menu hr { margin: -5px 0px 5px 0px; border: 1px solid dimgray; }
+    .article_menu hr:first-of-type { margin: 20px 0px 5px 0px; border: 1px solid black; }
+    .article_menu hr:nth-of-type(2) { border: 1px solid black; }
+    .article_menu hr:last-of-type { border: 1px solid black; }
+    .article_menu a:hover { color: cadetblue; }
+
+    .article_title { width: 920px; height: 50px; position: relative; margin: 0px auto 20px; 
+                     text-align: left; padding: 10px 20px; line-height: 30px;
+                     /*background-color: cornflowerblue;*/ } 
+    .article_title p { font-size:1.2em; color: limegreen; font: bolder; text-shadow: 1px 1px 1px black;}
+    .article_title hr { margin: -10px auto; border: 1px solid black;}
+    .article_content { width: 920px; height: 900px; margin: 10px auto;
+                       text-align: center; line-height: 20px;
+                       /*background-color: ivory;*/}
+    .image_size { width: 600px; }
+    .image_size2 { width: 400px; }
+    h4 { text-shadow: 1px 1px 1px black; }
+    .article_content img:last-of-type { width: 600px; }
+    .article p, h4 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #article_footer { width: 980px; height: 50px; position: absolute; bottom: 10px;
+                      text-align: center; line-height: 50px; }
+    #article_footer hr { margin: 0px auto; border: 1px solid black; }
+    #to_top { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+              left: 0px; top: 70px; z-index: 110; line-height: 50px; text-align: center;
+              border: 2px solid black; opacity: 0.2; }
+    #to_bottom { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+                 left: 0px; top: 118px; z-index: 110; line-height: 50px; text-align: center;
+                 border: 2px solid black; opacity: 0.2; transition-duration: 0.5s; }
+    #to_top i, #to_bottom i { font-size: 3.0em; }
+    #to_top:hover, #to_bottom:hover { opacity: 1; transition-duration: 0.5s; }
+    </style>
+
+    <style>
+    /*footer*/
+    #main_footer { width: 100%; height:60px; position: relative; z-index: 100;
+                   margin-left: 2px; line-height: 60px; bottom: 0px; text-align: center;
+                   background-position: bottom; background-color: white; }
+    </style>
+</head>
+
+<body>
+    <div id="up">
+        <header id="main_header">
+            <div id="title">
+                <a href="index.html"><img src="title.png" /></a>
+            </div> <!--And of title-->
+            <nav id="main_nav">
+                <ul>
+                    <li class="main_menu"><a class="main_menu_link" href="index.html"><b>Home</b></a></li>
+                    <li class="main_menu"><a class="main_menu_link" href="profile.html"><b>Profile</b></a></li>
+                    <li class="main_menu">
+                        <a class="main_menu_link" href="cook.html"><b>Cook</b></a>
+                        <ul class="sub_menu">
+                            <li><a class="sub_menu_link" href="salad.html">Salad</a></li>
+                            <li><a class="sub_menu_link" href="pasta.html">Pasta</a></li>
+                            <li><a class="sub_menu_link" href="koreanfood.html">Korean Food</a></li>
+                            <li><a class="sub_menu_link" href="others.html">Others</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_menu">
+                        <a class="main_menu_link" href="#"><b>Interested</b></a>
+                        <ul class="sub_menu">
+                            <li><a class="sub_menu_link" href="#">Music</a></li>
+                            <li><a class="sub_menu_link" href="#">Study</a></li>
+                            <li><a class="sub_menu_link" href="#">Book</a></li>
+                            <li><a class="sub_menu_link" href="#">Choir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav> <!--And of main_nav-->
+        </header>
+    </div>
+
+    <div id="wrap">
+        <section id="main_section">
+            <div class="article">
+                <div class="article_menu">
+                    <hr />
+                    <p>
+                        <span id="click">메뉴</span>
+                        <a href="salad.html">&nbsp;|&nbsp; Salad</a>
+                        <a href="pasta.html">&nbsp;|&nbsp; Pasta</a>
+                        <a href="koreanfood.html">&nbsp;|&nbsp; Koreanfood</a>
+                        <a href="others.html">&nbsp;|&nbsp; Others</a>
+                    </p>
+                    <hr />
+                    <p><a class="menu_link" href="pasta.html"> - [파스타] 파스타를 할 때 팁!!</a></p>
+                    <hr />
+                    <p><a class="menu_link" href="pasta2.html"><b> - [파스타] 토마토 파스타</b></a></p>
+                    <hr />
+                    <p><a class="menu_link" href="pasta3.html"> - [파스타] 베이컨 크림 파스타</a></p>
+                    <hr />
+                    <p><a class="menu_link" href="pasta4.html"> - [파스타] 토마토 로제 파스타</a></p>
+                    <hr />
+                </div>
+                <div class="article_title">
+                    <p>
+                        <b> [파스타] 토마토 파스타</b>
+                        <a href="cook.html">&nbsp;|&nbsp; Cook</a>
+                    </p>
+                    <hr />
+                </div>
+                <div class="article_content">
+                    <p>고3때 친구가 놀러와, 맛난걸 해주기로 하였습니다!!</p>
+                    <p>이제 샐러드는 만들었으니, 파스타를 만들어 볼까요?ㅎㅎ</p>
+                    <br />
+                    <p>... 여보세요?</p>
+                    <p>... 야 크림이 좋냐, 토마토가 좋냐?</p>
+                    <p style="color:crimson">... 난 토마토</p>
+                    <p>... ㅇㅋ</p>
+                    <br />
+                    <p>어디.. 한 번 <span style="color:crimson">토마토 파스타</span>를 만들어볼까요?</p>
+                    <br />
+                    <p>어렵지 않아요 딱히 나가서 사온건 없어요.</p>
+                    <p>그냥 집에 있는 것들 주워다가 하면 돼요~~ㅋㅋ</p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_1.png" />
+                    <hr />
+                    <p style="color:darkmagenta">준비물 : 파스타 면, 케찹, 토마토(사진에 없지만) 양파, 스팸, 우유(선택), 파슬리 가루(그저 장식용)</p>
+                    <br />
+                    <p>파스타 면은 고급진건 사실 안먹어봐서 그냥 싼거.. 1~2천원 안에서 살 수 있는걸로 해요..ㅋㅋ</p>
+                    <p>나중에는 막 모양 특이하게 생긴것도 사다가 해볼 생각이지만.. 그건 어디까지나 나중에..</p>
+                    <br />
+                    <p>아무튼!! 1번 포스팅에서 알려 드렸던 Tip을 참고하여..</p>
+                    <p style="color:darkorchid">2인분 양의 파스타 면을 준비합니다.</p>
+                    <p style="color:darkblue">물은 2L 정도</p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_2.png" />
+                    <hr />
+                    <p>물이 팔팔 끓으면 면을 넣고 약 8분~9분 간 기다려 주세요.</p>
+                    <p style="color:brown">가끔씩 생각나면 한 번씩 저어주세요. 자기들끼리 엉켜서 눌러붙지 않게ㅠㅠ</p>
+                    <br />
+                    <p>그동안, 우린 다른 재료들을 손질해서 볶아줄까요?</p>
+                    <p style="color:blue">이미 면을 넣었어요... 모든걸 8분 안에 끝내야 합니닷.. ㅎㄷㄷ</p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_3.png" />
+                    <hr />
+                    <p style="color:darkblue">양파는 채썰어주시구요~~</p>
+                    <p><del>눈이 맵다...ㅠㅠ</del></p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_4.png" />
+                    <hr />
+                    <p style="color:darkslateblue">햄 역시 잘게 썰어주세요~!!</p>
+                    <p><del>그냥 저대로 구워먹고 싶다... 핡...</del></p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_5.png" />
+                    <hr />
+                    <p style="color:dodgerblue">이제 양파랑 햄을 중불에다가 볶아주세요.</p>
+                    <p style="color:darkblue">양파를 볶기 전에 기름을 좀 두르고 볶으면</p>
+                    <p style="color:darkblue">타지 않게 잘 볶을 수 있답니다~~</p>
+                    <br />
+                    <p>이제 볶다가.. 양파에서 물이 나올때 쯤..</p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_6.png" />
+                    <hr />
+                    <p>가랏...!! 이젠 너의 활약이 필요해!!</p>
+                    <hr />
+                    <img class="image_size" src="tomato_pasta_7.png" />
+                    <hr />
+                    <p style="color:orangered">사진을 못찍어서 전에 찍은 사진으로 대체 하지만.. 이렇게 케찹을 넣어줍니다.</p>
+                    <p style="color:red">생각보다 많은 양의 케찹이 들어가야 합니다.</p>
+                    <br />
+                    <p>그리고 토마토를 으깨서 넣어주면 좋죠.</p>
+                    <p>같이 섞어주면서 뒤적 뒤적... 볶아줍니다.</p>
+                    <br />
+                    <p>그렇게 뒤적거리다가, <span style="color:darkgoldenrod">우유를 아주 소량 넣으면 좀 더 부드러워 집니다.</span></p>
+                    <br />
+                    <p>8분 30초쯤 지나면 면을 꺼내서 채에 걸러 물을 빼주...</p>
+                    <p style="color:darkblue">는건 귀찮고, 그냥 물좀 따라버리고, 바로 건져서 넣읍시다.</p>
+                    <br />
+                    <p style="color:cadetblue">소스의 양을 조절하고 싶으면, 케찹과 우유의 비율을 맞추어 더 넣거나, 덜 넣거나 하면 됩니다.</p>
+                    <p>소스와 면이 잘 섞이도록 한 다음, 불을 꺼 줍시다~^^</p>
+                    <br />
+                    <p><del>우리는 많이먹는 사람들이라.. 3인분 같은 2인분을 만들었...</del></p>
+                    <br />
+                    <p>크흠... <span style="color:green">파슬리 가루</span>는 솔직히..</p>
+                    <p>뭐 영양가가 있어서 아니면 맛있어서 넣는게 아니라</p>
+                    <p style="color:indigo">그저 사진찍기 위한 장식용이죠.</p>
+
+
+                    <hr />
+                    <img class="image_size" src="tomato_pasta.png" />
+                    <hr />
+                    <h4 style="color: darkblue">초간단(?) tomato pasta 완성!!</h4>
+                    <hr />
+                    <p>저 <span style="color:green">파슬리가루...</span> 있는것하고 없는것하고... 사진빨이 정말 많이 달라집니다.ㅋㅋ</p>
+                    <p style="color:darkblue">맛있어 보이게 사진 찍어서 자랑하면서 놀릴라고 산건 비밀..ㅋㅋㅋㅋ</p>
+                </div>
+                <div id="article_footer">
+                    <hr />
+                    <h4>
+                        <a href="pasta.html">1</a>&nbsp;|&nbsp;
+                        <a href="pasta2.html" style="color:darkslateblue">2</a>&nbsp;|&nbsp;
+                        <a href="pasta3.html">3</a>&nbsp;|&nbsp;
+                        <a href="pasta4.html">4</a>&nbsp;|&nbsp;
+                    </h4>
+                    <hr />
+                </div>
+            </div>
+        </section>
+    </div> <!--And of wrap-->
+    <div id="to_top">
+        <a href="#main_section"><i class="glyphicon glyphicon-chevron-up"></i></a>
+    </div>
+    <div id="to_bottom">
+        <a href="#article_footer"><i class="glyphicon glyphicon-chevron-down"></i></a>
+    </div>
+    <footer id="main_footer">
+        <img src="footer.png" />
+    </footer>
+</body>
+</html>

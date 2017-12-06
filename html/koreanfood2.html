@@ -1,0 +1,244 @@
+﻿<!doctype html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    /*initial*/
+	* { margin: 0; padding: 0; }
+	body { font-family: 'Times New Roman', Times, serif;
+           background-image: url(mainfood6.png);
+           background-repeat: no-repeat;
+           background-size: cover ;
+	}
+
+	li { list-style: none; }
+    a { text-decoration: none !important; color: black;}
+    h1 { text-decoration: none !important; }
+    img { border: 0; }
+    </style>
+
+    <style>
+	/*header*/
+    #up { width: 100%; background: rgba(255,255,255,0.9); }
+	#main_header { width: 900px; height: 70px; position: relative; margin: 0px auto;
+				   overflow: visible;
+	}
+    #title { width: 370px; height: 60px; line-height: 60px !important; position: absolute; bottom: 1px;
+             margin: 0px 0px 0px -1.5px; float: left; text-align: center; /*background-color: yellow; */}
+    #main_nav { width: 480px; height: 40px; line-height: 40px; text-align: center;
+                position: absolute; right: 0px; bottom: 0px; }
+    #main_nav ul { margin: 0px; padding: 0px; overflow: hidden; }
+    .main_menu { float: left; line-height: 40px; position: relative; /*background-color:cyan;*/}
+	.main_menu_link, .sub_menu_link { text-decoration: none; display: block;
+									  width: 120px; font-size: 1.7em !important; }
+	.main_menu_link { color: black; text-shadow: 1px 1px 1px black; }
+
+    .main_menu:hover .main_menu_link { color: greenyellow; text-shadow: 1px 1px 2px black; }
+	.sub_menu_link { color: white; font-size: 1.0em !important ; }
+	.sub_menu { height: 0px; overflow: hidden;  background: rgba(0,0,0,0.7); position: relative; 
+						transition: height .3s; z-index: 10;
+						-webkit-transition: height .3s; }
+	.main_menu:hover .sub_menu { margin-top: 10px; height: 160px;  background: rgba(0,0,0,0.7); }
+	.main_menu:hover .sub_menu_link { color: white; text-shadow: 2px 2px 1px black; }
+	.main_menu:hover .sub_menu_link:hover { color: greenyellow; text-shadow: 1px 1px 1px black; }
+    </style>
+
+    <style>
+    /*content*/
+    #wrap { width: 100%; height: 815px; margin: 0 auto;       
+            text-align: center;
+            overflow: scroll;
+    }
+    #main_section { width: 1080px; height: 2380px; z-index: 1; position: relative;
+                    margin: 0px auto; overflow: hidden; background: rgba(255,255,255,0.9); }
+    .article { width: 980px; height: 2280px; margin: 0px auto;
+               background: rgba(255,255,255,0.5); }
+    .article_menu { width: 700px; height: 130px; position: relative; margin: 0px auto 0px; 
+                    text-align: left; line-height: 20px; padding: 0px 10px;
+                    /*background-color: aquamarine;*/ }
+    .article_menu span { padding: 0px 0px 0px 20px; }
+    .article_menu .menu_link { padding: 0px 30px; /*background-color: blueviolet;*/ }
+    .article_menu hr { margin: -5px 0px 5px 0px; border: 1px solid dimgray; }
+    .article_menu hr:first-of-type { margin: 20px 0px 5px 0px; border: 1px solid black; }
+    .article_menu hr:nth-of-type(2) { border: 1px solid black; }
+    .article_menu hr:last-of-type { border: 1px solid black; }
+    .article_menu a:hover { color: cadetblue; }
+
+    .article_title { width: 920px; height: 50px; position: relative; margin: 0px auto 20px; 
+                     text-align: left; padding: 10px 20px; line-height: 30px;
+                     /*background-color: cornflowerblue;*/ } 
+    .article_title p { font-size:1.2em; color: limegreen; font: bolder; text-shadow: 1px 1px 1px black;}
+    .article_title hr { margin: -10px auto; border: 1px solid black;}
+    .article_content { width: 920px; height: 900px; margin: 10px auto;
+                       text-align: center; line-height: 20px;
+                       /*background-color: ivory;*/}
+    .image_size { width: 600px; }
+    .image_size2 { width: 400px; }
+    h4 { text-shadow: 1px 1px 1px black; }
+    .article_content img:last-of-type { width: 600px; }
+    .article p, h4 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #article_footer { width: 980px; height: 50px; position: absolute; bottom: 10px;
+                      text-align: center; line-height: 50px; }
+    #article_footer hr { margin: 0px auto; border: 1px solid black; }
+    #to_top { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+              left: 0px; top: 70px; z-index: 110; line-height: 50px; text-align: center;
+              border: 2px solid black; opacity: 0.2; }
+    #to_bottom { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+                 left: 0px; top: 118px; z-index: 110; line-height: 50px; text-align: center;
+                 border: 2px solid black; opacity: 0.2; transition-duration: 0.5s; }
+    #to_top i, #to_bottom i { font-size: 3.0em; }
+    #to_top:hover, #to_bottom:hover { opacity: 1; transition-duration: 0.5s; }
+
+    @keyframes slidy {
+        0% { left: 0%; }
+        40% { left: 0%; }
+        50% { left: -100%; }
+        90% {left: -100%; }
+        100% { left: 0%; }
+    }
+
+    div #slider { overflow: hidden; width: 600px; margin: 0px auto; }
+    div #slider figure img { width: 600px; float: left; }
+    div #slider figure { position: relative; width: 200%; margin: 0;
+                         -webkit-animation: 6s slidy ease-in-out infinite;
+                         animation: 6s slidy ease-in-out infinite;
+    }
+    </style>
+
+    <style>
+    /*footer*/
+    #main_footer { width: 100%; height:60px; position: relative; z-index: 100;
+                   margin-left: 2px; line-height: 60px; bottom: 0px; text-align: center;
+                   background-position: bottom; background-color: white; }
+    </style>
+</head>
+
+<body>
+    <div id="up">
+        <header id="main_header">
+            <div id="title">
+                <a href="index.html"><img src="title.png" /></a>
+            </div> <!--And of title-->
+            <nav id="main_nav">
+                <ul>
+                    <li class="main_menu"><a class="main_menu_link" href="index.html"><b>Home</b></a></li>
+                    <li class="main_menu"><a class="main_menu_link" href="profile.html"><b>Profile</b></a></li>
+                    <li class="main_menu">
+                        <a class="main_menu_link" href="cook.html"><b>Cook</b></a>
+                        <ul class="sub_menu">
+                            <li><a class="sub_menu_link" href="salad.html">Salad</a></li>
+                            <li><a class="sub_menu_link" href="pasta.html">Pasta</a></li>
+                            <li><a class="sub_menu_link" href="koreanfood.html">Korean Food</a></li>
+                            <li><a class="sub_menu_link" href="others.html">Others</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_menu">
+                        <a class="main_menu_link" href="#"><b>Interested</b></a>
+                        <ul class="sub_menu">
+                            <li><a class="sub_menu_link" href="#">Music</a></li>
+                            <li><a class="sub_menu_link" href="#">Study</a></li>
+                            <li><a class="sub_menu_link" href="#">Book</a></li>
+                            <li><a class="sub_menu_link" href="#">Choir</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav> <!--And of main_nav-->
+        </header>
+    </div>
+
+    <div id="wrap">
+        <section id="main_section">
+            <div class="article">
+                <div class="article_menu">
+                    <hr />
+                    <p>
+                        <span id="click">메뉴</span>
+                        <a href="salad.html">&nbsp;|&nbsp; Salad</a>
+                        <a href="pasta.html">&nbsp;|&nbsp; Pasta</a>
+                        <a href="koreanfood.html">&nbsp;|&nbsp; Koreanfood</a>
+                        <a href="others.html">&nbsp;|&nbsp; Others</a>
+                    </p>
+                    <hr />
+                    <p><a class="menu_link" href="koreanfood.html"> - [한식] (김치)볶음밥</a></p>
+                    <hr />
+                    <p><a class="menu_link" href="koreanfood2.html"><b> - [한식] 제육볶음 두 종류</b></a></p>
+                    <hr />
+                </div>
+                <div class="article_title">
+                    <p>
+                        <b> [한식] 제육볶음 두 종류</b>
+                        <a href="cook.html">&nbsp;|&nbsp; Cook</a>
+                    </p>
+                    <hr />
+                </div>
+                <div class="article_content">
+                    <p>오늘 음식은, 너무나도 좋아하는</p>
+                    <p style="color:brown">고기</p>
+                    <p style="color:darkblue">고기</p>
+                    <p style="color:cadetblue">고기</p>
+                    <p>제육볶음!! ㅎㅎㅎ</p>
+                    <br />
+                    <p>두 종류의 제육볶음이 있는데욧!!</p>
+                    <p>저희집은 앞다리살을 많이 사먹어요.</p>
+                    <p style="color:crimson">삼겹살은 비싸서 안먹고.. 앞다리살 사다가 구워먹어요ㅋㅋㅋ</p>
+                    <br />
+                    <p>사실 삼겹살이 훨씬 맛있고 그런 것도 아닌데..</p>
+                    <p>사람들이 앞다리살은 많이들.. 안먹더라구요?</p>
+                    <br />
+                    <p>아무튼..!!</p>
+                    <p style="color:darkmagenta">오늘은 과정은 없고 그냥 발견하게 된 Tip만 좀 끄적여 보려구요ㅋㅋㅋ</p>
+                    <br />
+                    <div id="slider">
+                        <figure>
+                            <img src="meat_1.png" alt="">
+                            <img src="meat_2.png" alt="">
+                        </figure>
+                    </div>
+                    <br />
+                    <br />
+                    <p style="color:darkorchid">이건 그냥 평범한 가정집에서 해먹는 그런 제육볶음이구요.</p>
+                    <p>그래도 넘나 맛있죠..ㅋㅋㅋ</p>
+                    <br />
+                    <p>근데 사먹는건 뭐랄까.. 국물이 많진 않고 양념이 좀 세다고 해야하나요?</p>
+                    <p style="color:blue"><del>역시 자극적인 입맛 한국인인가..</del></p>
+                    <br />
+                    <p>아무튼.. 보니까 그거는, 고기와 채소들을 다 볶고나서,</p>
+                    <p style="color:crimson">양념을 마지막에 넣고 볶는다기 보단 섞더라구요??</p>
+                    <p>쇼킹..ㅋㅋ 뭐 그렇게 하니까 양념이 진하게 (묽지 않게) 되서 맛있게 먹었어요.ㅋㅋ</p>
+                    <hr />
+                    <img class="image_size" src="meat_3.png" />
+                    <hr />
+                    <p>그리고 이건.. 배고플 때 급하게 만들었던건데..</p>
+                    <p><span style="color:mediumpurple">맛술, 간장, 조청, 다진마늘, 양파</span> 등을 넣고 만든 제육이에요. ㅎㅎ</p>
+                    <p style="color:purple">그냥.. 언제나.. 고기는.. 맛있어요... ㅋㅋㅋㅋㅋ</p>
+                    <p style="color:darkgreen">애들 만나도 언제나 고기만 먹는데 맨날 고기 먹고싶은 이 마음 ㅋㅋㅋ</p>
+                    <hr />
+                    <h4 style="color: darkblue">오늘도 맛있게 제육볶음 완성!!</h4>
+                    <hr />
+                </div>
+                <div id="article_footer">
+                    <hr />
+                    <h4>
+                        <a href="koreanfood.html">1</a>&nbsp;|&nbsp;
+                        <a href="koreanfood2.html" style="color:darkslateblue">2</a>&nbsp;|&nbsp;
+                    </h4>
+                    <hr />
+                </div>
+            </div>
+        </section>
+    </div> <!--And of wrap-->
+    <div id="to_top">
+        <a href="#main_section"><i class="glyphicon glyphicon-chevron-up"></i></a>
+    </div>
+    <div id="to_bottom">
+        <a href="#article_footer"><i class="glyphicon glyphicon-chevron-down"></i></a>
+    </div>
+    <footer id="main_footer">
+        <img src="footer.png" />
+    </footer>
+</body>
+</html>

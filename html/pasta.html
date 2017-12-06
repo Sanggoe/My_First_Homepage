@@ -1,0 +1,275 @@
+﻿<!doctype html>
+
+<html>
+<head>
+    <title></title>
+    <link rel="Stylesheet" href="css/bootstrap.min.css" />
+    <style>
+    /*initial*/
+	* { margin: 0; padding: 0; }
+	body { font-family: 'Times New Roman', Times, serif;
+           background-image: url(mainfood6.png);
+           background-repeat: no-repeat;
+           background-size: cover ;
+	}
+
+	li { list-style: none; }
+    a { text-decoration: none !important; color: black;}
+    h1 { text-decoration: none !important; }
+    img { border: 0; }
+    </style>
+
+    <style>
+	/*header*/
+    #up { width: 100%; background: rgba(255,255,255,0.9); }
+	#main_header { width: 900px; height: 70px; position: relative; margin: 0px auto;
+				   overflow: visible;
+	}
+    #title { width: 370px; height: 60px; line-height: 60px !important; position: absolute; bottom: 1px;
+             margin: 0px 0px 0px -1.5px; float: left; text-align: center; /*background-color: yellow; */}
+    #main_nav { width: 480px; height: 40px; line-height: 40px; text-align: center;
+                position: absolute; right: 0px; bottom: 0px; }
+    #main_nav ul { margin: 0px; padding: 0px; overflow: hidden; }
+    .main_menu { float: left; line-height: 40px; position: relative; /*background-color:cyan;*/}
+	.main_menu_link, .sub_menu_link { text-decoration: none; display: block;
+									  width: 120px; font-size: 1.7em !important; }
+	.main_menu_link { color: black; text-shadow: 1px 1px 1px black; }
+
+    .main_menu:hover .main_menu_link { color: greenyellow; text-shadow: 1px 1px 2px black; }
+	.sub_menu_link { color: white; font-size: 1.0em !important ; }
+	.sub_menu { height: 0px; overflow: hidden;  background: rgba(0,0,0,0.7); position: relative; 
+						transition: height .3s; z-index: 10;
+						-webkit-transition: height .3s; }
+	.main_menu:hover .sub_menu { margin-top: 10px; height: 160px;  background: rgba(0,0,0,0.7); }
+	.main_menu:hover .sub_menu_link { color: white; text-shadow: 2px 2px 1px black; }
+	.main_menu:hover .sub_menu_link:hover { color: greenyellow; text-shadow: 1px 1px 1px black; }
+    </style>
+
+    <style>
+    /*content*/
+    #wrap { width: 100%; height: 815px; margin: 0 auto;       
+            text-align: center;
+            overflow: scroll;
+    }
+    #main_section { width: 1080px; height: 5450px; z-index: 1; position: relative;
+                    margin: 0px auto; overflow: hidden; background: rgba(255,255,255,0.9); }
+    .article { width: 980px; height: 5350px; margin: 0px auto;
+               background: rgba(255,255,255,0.5); }
+    .article_menu { width: 700px; height: 200px; position: relative; margin: 0px auto 0px; 
+                    text-align: left; line-height: 20px; padding: 0px 10px;
+                    /*background-color: aquamarine;*/ }
+    .article_menu span { padding: 0px 0px 0px 20px; }
+    .article_menu .menu_link { padding: 0px 30px; /*background-color: blueviolet;*/ }
+    .article_menu hr { margin: -5px 0px 5px 0px; border: 1px solid dimgray; }
+    .article_menu hr:first-of-type { margin: 20px 0px 5px 0px; border: 1px solid black; }
+    .article_menu hr:nth-of-type(2) { border: 1px solid black; }
+    .article_menu hr:last-of-type { border: 1px solid black; }
+    .article_menu a:hover { color: cadetblue; }
+
+    .article_title { width: 920px; height: 50px; position: relative; margin: 0px auto 20px; 
+                     text-align: left; padding: 10px 20px; line-height: 30px;
+                     /*background-color: cornflowerblue;*/ } 
+    .article_title p { font-size:1.2em; color: limegreen; font: bolder; text-shadow: 1px 1px 1px black;}
+    .article_title hr { margin: -10px auto; border: 1px solid black;}
+    .article_content { width: 920px; height: 900px; margin: 10px auto;
+                       text-align: center; line-height: 20px;
+                       /*background-color: ivory;*/}
+    .image_size { width: 600px; }
+    .image_size2 { width: 400px; }
+    h4 { text-shadow: 1px 1px 1px black; }
+    .article_content img:last-of-type { width: 600px; }
+    .article p, h4 { font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+    #article_footer { width: 980px; height: 50px; position: absolute; bottom: 10px;
+                      text-align: center; line-height: 50px; }
+    #article_footer hr { margin: 0px auto; border: 1px solid black; }
+    #to_top { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+              left: 0px; top: 70px; z-index: 110; line-height: 50px; text-align: center;
+              border: 2px solid black; opacity: 0.2; }
+    #to_bottom { width: 50px; height: 50px; position: fixed; background-color: greenyellow;
+                 left: 0px; top: 118px; z-index: 110; line-height: 50px; text-align: center;
+                 border: 2px solid black; opacity: 0.2; transition-duration: 0.5s; }
+    #to_top i, #to_bottom i { font-size: 3.0em; }
+    #to_top:hover, #to_bottom:hover { opacity: 1; transition-duration: 0.5s; }
+    </style>
+
+    <style>
+    /*footer*/
+    #main_footer { width: 100%; height:60px; position: relative; z-index: 100;
+                   margin-left: 2px; line-height: 60px; bottom: 0px; text-align: center;
+                   background-position: bottom; background-color: white; }
+    </style>
+ </head>
+ 
+ <body>
+     <div id="up">
+         <header id="main_header">
+             <div id="title">
+                 <a href="index.html"><img src="title.png" /></a>
+             </div> <!--And of title-->
+             <nav id="main_nav">
+                 <ul>
+                     <li class="main_menu"><a class="main_menu_link" href="index.html"><b>Home</b></a></li>
+                     <li class="main_menu"><a class="main_menu_link" href="profile.html"><b>Profile</b></a></li>
+                     <li class="main_menu">
+                         <a class="main_menu_link" href="cook.html"><b>Cook</b></a>
+                         <ul class="sub_menu">
+                             <li><a class="sub_menu_link" href="salad.html">Salad</a></li>
+                             <li><a class="sub_menu_link" href="pasta.html">Pasta</a></li>
+                             <li><a class="sub_menu_link" href="koreanfood.html">Korean Food</a></li>
+                             <li><a class="sub_menu_link" href="others.html">Others</a></li>
+                         </ul>
+                     </li>
+                     <li class="main_menu">
+                         <a class="main_menu_link" href="#"><b>Interested</b></a>
+                         <ul class="sub_menu">
+                             <li><a class="sub_menu_link" href="#">Music</a></li>
+                             <li><a class="sub_menu_link" href="#">Study</a></li>
+                             <li><a class="sub_menu_link" href="#">Book</a></li>
+                             <li><a class="sub_menu_link" href="#">Choir</a></li>
+                         </ul>
+                     </li>
+                 </ul>
+             </nav> <!--And of main_nav-->
+         </header>
+     </div>
+
+     <div id="wrap">
+         <section id="main_section">
+             <div class="article">
+                 <div class="article_menu">
+                     <hr />
+                     <p>
+                         <span id="click">메뉴</span>
+                         <a href="salad.html">&nbsp;|&nbsp; Salad</a>
+                         <a href="pasta.html">&nbsp;|&nbsp; Pasta</a>
+                         <a href="koreanfood.html">&nbsp;|&nbsp; Koreanfood</a>
+                         <a href="others.html">&nbsp;|&nbsp; Others</a>
+                     </p>
+                     <hr />
+                     <p><a class="menu_link" href="pasta.html"><b> - [파스타] 파스타를 할 때 팁!!</b></a></p>
+                     <hr />
+                     <p><a class="menu_link" href="pasta2.html"> - [파스타] 토마토 파스타</a></p>
+                     <hr />
+                     <p><a class="menu_link" href="pasta3.html"> - [파스타] 베이컨 크림 파스타</a></p>
+                     <hr />
+                     <p><a class="menu_link" href="pasta4.html"> - [파스타] 토마토 로제 파스타</a></p>
+                     <hr />
+                 </div>
+                 <div class="article_title">
+                     <p>
+                         <b> [파스타] 파스타를 할 때 팁!!</b>
+                         <a href="cook.html">&nbsp;|&nbsp; Cook</a>
+                     </p>
+                     <hr />
+                 </div>
+                 <div class="article_content">
+                     <p>집에서 심심할 때.. 출출할 때..</p>
+                     <p>라면은 질리고.. <del>라면 모독발언...!!</del> 뭔가 맛있는거 먹고싶을 때..</p>
+                     <p style="color:cornflowerblue">생각 외로 쉽고 간단하게 만들 수 있는 만만한 음식이 파스타 입니다아l!!</p>
+                     <br />
+                     <p style="color:blue">그래서 파스타 요리를 포스팅 하기 전에, 알아두면 좋을 팁 들에 대해서 간단히 설명할까 해요!</p>
+                     <br />
+                     <p><del>뭐 하다보면.. 정석대로는 개뿔 닥치는대로 하게 되긴 하지만..</del></p>
+                     <p>그래도 냄비, 물, 파스타 정도는 준비 해주셔야겠죠?</p>
+                     <br />
+                     <br />
+                     <p style="color:darkmagenta">준비물 : 냄비, 물, 파스타, 굵은 소금</p>
+                     <br />
+                     <hr />
+                     <h4 style="color: darkblue">1. 물의 양</h4>
+                     <hr />
+                     <img class="image_size" src="tip_water.png" />
+                     <hr />
+                     <p>파스타를 할 때, 면을 삶기 위해서는 물이 반드시 필요하겠죠?</p>
+                     <p><span style="color:brown">'몇인분의 면을 삶을 것인가?' </span>에 따라서 물의 양이 달라지는데요. (당연한 말이지만..)</p>
+                     <p>결론부터 말씀 드리자면, <span style="color:darkblue">1인분에 물 1L 정도가 적당</span>합니다.</p>
+                     <br />
+                     <p>그래도 뭐.. '꼭 이렇게 해야해!' 하고 누가 정해 놓은 것도 아니고..</p>
+                     <p>자기 맘대로 요령껏 하면 되겠죠? 그냥.. 보편적으로 많이 쓰인다구요..ㅎㅎ</p>
+                     <br />
+                     <hr />
+                     <h4 style="color:indigo">2. 면의 양</h4>
+                     <hr />
+                     <img class="image_size" src="tip_finger.png" />
+                     <hr />
+                     <p>사람마다 먹는 양이 또 다르겠지요??</p>
+                     <p>자, 손을 들어 엄지손가락을 펴 마디를 확인해 보세요.</p>
+                     <br />
+                     <p>마디가 두 개 보이시죠?</p>
+                     <p>그 중에, 안 쪽에 있는 마디. 두 번째 마디에 검지 손가락을 대 보세요.</p>
+                     <p>작은 원이 하나 만들어지죠??</p>
+                     <p style="color:steelblue">그 작은 원만큼이 보통 1인분 정도라고 생각하시면 됩니다.</p>
+                     <hr />
+                     <img class="image_size" src="tip_finger2.png" />
+                     <hr />
+                     <p>이렇게요. 보기에는 정말 얼마 안되어 보이는데..</p>
+                     <p>이게 또 삶고나면 꽤나 많은 양입니다~~!!</p>
+                     <p style="color:cadetblue">전에 욕심부리고 일부로 손가락 원을 크게 만들었다가</p>
+                     <p style="color:cadetblue">엄청나게 많은 양을 감당하지 못했던 기억이..</p>
+                     <br />
+                     <hr />
+                     <h4 style="color:olive">3. 면 삶기</h4>
+                     <hr />
+                     <p>면을 삶을 때, 물이 팔팔 끓을 때 넣어주어야 합니다.</p>
+                     <p style="color:crimson">이 때, 물에다 소금을 넣어주는 것이 좋습니다.</p>
+                     <hr />
+                     <img class="image_size" src="tip_sult1.png" />
+                     <hr />
+                     <p>뭐 떠서 마실 국물 만드는 거 아니잖아요..? ㅋㅋㅋ</p>
+                     <p>그러니까 맛소금 미원 뭐 그런거 말고..</p>
+                     <p>굵은 소금으로 넣어 줍시다.</p>
+                     <hr />
+                     <img class="image_size" src="tip_sult2.png" />
+                     <hr />
+                     <p style="color:brown">물 1L 를 기준으로, 커피 스푼 있죠? 1T 정도 넣어줍니다.</p>
+                     <p style="color:crimson">지금은 필요하지 않지만, 육수가 필요한 파스타를 만드는 경우에는</p>
+                     <p style="color:crimson">이렇게 소금을 넣어줌으로써 이 물을 나중에 면수로 사용 할 수도 있습니다.</p>
+                     <br />
+                     <br />
+                     <p style="color:darkblue">★★★★★ 그리고 가장 중요한 면 삶기!!!!! ★★★★★</p>
+                     <p>보통은 타이머를 놓고 시간을 재는 것을 추천 드립니다만..</p>
+                     <p>파스타 종류마다 시간이 다르더군요.</p>
+                     <p>저같은 경우에는, <span style="color:darkviolet">8분 30초정도 삶고 바로 건져냅니다.</span></p>
+                     <br />
+                     <hr />
+                     <p><b>7분 ~ 8분정도 삶으면 파스타의 심지가 약간 살아있는 정도.</b></p>
+                     <p><b>8분 ~ 9분정도 삶으면 파스타가 적당히 탄력있게 익은 정도.</b></p>
+                     <p><b>9분 ~ 10분정도 삶으면 파스타가 누구나 먹기 좋을 정도로 잘익은 정도</b></p>
+                     <hr />
+                     <br />
+                     <p style="color:blueviolet">그래도 모르겠으면, 던져보세요.</p>
+                     <p>벽에다 던졌을 때, 튕겨나온다? 그럼 아직 좀 더 익혀야 합니다.</p>
+                     <hr />
+                     <img class="image_size" src="tip_noodle.png" />
+                     <hr />
+                     <p style="color:crimson">그런데 벽에다 던졌는데 찰싹! 붙어버린다? 불을 끄세요!!</p>
+                     <p>지나치게 너~~무 많이 익히면 이것도 불어요...ㅋㅋㅋ</p>
+                     <br />
+                     <hr />
+                     <h4 style="color: darkblue">이상, pasta에 대한 Tip 이었습니다!!</h4>
+                     <hr />
+                 </div>
+                 <div id="article_footer">
+                     <hr />
+                     <h4>
+                         <a href="pasta.html" style="color:darkslateblue">1</a>&nbsp;|&nbsp;
+                         <a href="pasta2.html">2</a>&nbsp;|&nbsp;
+                         <a href="pasta3.html">3</a>&nbsp;|&nbsp;
+                         <a href="pasta4.html">4</a>&nbsp;|&nbsp;
+                     </h4>
+                     <hr />
+                 </div>
+             </div>
+         </section>
+     </div> <!--And of wrap-->
+     <div id="to_top">
+         <a href="#main_section"><i class="glyphicon glyphicon-chevron-up"></i></a>
+     </div>
+     <div id="to_bottom">
+         <a href="#article_footer"><i class="glyphicon glyphicon-chevron-down"></i></a>
+     </div>
+     <footer id="main_footer">
+         <img src="footer.png" />
+     </footer>
+</body>
+</html>
